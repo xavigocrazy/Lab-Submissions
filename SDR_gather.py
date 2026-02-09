@@ -5,9 +5,9 @@ import asyncio
 import time
 import numpy as np
 
-sdr = ugradio.sdr.SDR(sample_rate=2.2e6)
+sdr = ugradio.sdr.SDR(sample_rate=1.5e5,fir_coeffs=np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2047]))
 data = sdr.capture_data(2048, nblocks=10)
 print(sdr)
 print(data)
-np.savez("testfreq300khz.npz", data)
+np.savez("a1_freq100khz.npz", data)
 

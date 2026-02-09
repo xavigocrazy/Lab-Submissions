@@ -1,0 +1,24 @@
+import ugradio
+import pandas as pd
+from rtlsdr import RtlSdr
+import asyncio
+import time
+import numpy as np
+#Imported a copy of constant.py.save into this file so that all the collected data goes into this file instead
+#I was too lazy to write code to automatically make it go into serparate paths -katie
+
+sdr = ugradio.sdr.SDR(sample_rate=2.2e5)
+data = sdr.capture_data(2048, nblocks=10)
+print(sdr)
+print(data)
+
+#Calculate the Nyquist frequecny
+freq_sample = 100000 #Hz
+ny_freq = 2 * (freq_sample) #Hz
+print(f'The sample frequency should be equal to or less than:{ny_freq}')
+
+file_name = testingsamplerateerror
+np.savez(f'{file_name}.npz', data)
+
+
+

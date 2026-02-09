@@ -4,11 +4,16 @@ from rtlsdr import RtlSdr
 import asyncio
 import time
 import numpy as np
+#import os #imptoring operating system 
 
-sdr = ugradio.sdr.SDR(sample_rate=2.2e6)
+sdr = ugradio.sdr.SDR(sample_rate=3.2e6)
 data = sdr.capture_data(2048, nblocks=10)
 print(sdr)
 print(data)
-np.savez("testfreq300khz.npz", data)
+
+#file_name = al_data_sr_2.2
+np.savez("Nway_above_lim_800khz.npz", data)
+
+
 
 
